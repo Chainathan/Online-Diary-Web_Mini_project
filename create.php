@@ -3,19 +3,18 @@
   $table= fread($myfile,filesize("newfile.txt"));
   fclose($myfile);
   $servername = "mysql-32686-0.cloudclusters.net";
-$username = "admin";
-$password = "bKw1Lywo";
-$dbname   = "onlinediary";
-$dbServerPort = "32686";
+  $username = "admin";
+  $password = "bKw1Lywo";
+  $dbname   = "onlinediary";
+  $dbServerPort = "32686";
 
-// Create connection
-$mysqli = new mysqli($servername, $username, $password, $dbname, $dbServerPort,);
+  // Create connection
+  $mysqli = new mysqli($servername, $username, $password, $dbname, $dbServerPort,);
 
-// Check connection
-if (!$mysqli) {
-    die("Connection failed: " . mysqli_connect_error());
-}else
-echo "Connected successfully";
+  // Check connection
+  if (!$mysqli) {
+      die("Connection failed: " . mysqli_connect_error());
+  }
   $a="INSERT INTO ".$table." (date,feelings) VALUES(?,?)";
   $sql=$mysqli->prepare($a); 
   $sql->bind_param("ss",$date,$info); 

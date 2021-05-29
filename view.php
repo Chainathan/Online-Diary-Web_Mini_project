@@ -6,20 +6,19 @@
 
   $date=$_POST["tf1"];
   $servername = "mysql-32686-0.cloudclusters.net";
-$username = "admin";
-$password = "bKw1Lywo";
-$dbname   = "onlinediary";
-$dbServerPort = "32686";
+  $username = "admin";
+  $password = "bKw1Lywo";
+  $dbname   = "onlinediary";
+  $dbServerPort = "32686";
 
-// Create connection
-$mysqli = new mysqli($servername, $username, $password, $dbname, $dbServerPort,);
+  // Create connection
+  $mysqli = new mysqli($servername, $username, $password, $dbname, $dbServerPort,);
 
-// Check connection
-if (!$mysqli) {
-    die("Connection failed: " . mysqli_connect_error());
-}else
-echo "Connected successfully";
-$a="SELECT * FROM ".$table." WHERE date='".$date."'";
+  // Check connection
+  if (!$mysqli) {
+      die("Connection failed: " . mysqli_connect_error());
+  }
+  $a="SELECT * FROM ".$table." WHERE date='".$date."'";
   $sql=$mysqli->query($a);
   	$obj=$sql->fetch_assoc();
     echo '<html>';
