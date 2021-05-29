@@ -1,10 +1,21 @@
-<?php 
-   
+<?php   
   $myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
   $table= fread($myfile,filesize("newfile.txt"));
   fclose($myfile);
+  $servername = "mysql-32686-0.cloudclusters.net";
+$username = "admin";
+$password = "bKw1Lywo";
+$dbname   = "onlinediary";
+$dbServerPort = "32686";
 
-  $mysqli=new mysqli('localhost','root','','dairy_web_project'); 
+// Create connection
+$mysqli = new mysqli($servername, $username, $password, $dbname, $dbServerPort,);
+
+// Check connection
+if (!$mysqli) {
+    die("Connection failed: " . mysqli_connect_error());
+}else
+echo "Connected successfully";
   $a="INSERT INTO ".$table." (date,feelings) VALUES(?,?)";
   $sql=$mysqli->prepare($a); 
   $sql->bind_param("ss",$date,$info); 

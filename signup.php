@@ -1,6 +1,19 @@
 <?php 
-  $mysqli=new mysqli('localhost','root','','dairy_web_project'); 
-  $sql=$mysqli->prepare("INSERT INTO applications(Name,username,password) VALUES (?,?,?)"); 
+$servername = "mysql-32686-0.cloudclusters.net";
+$username = "admin";
+$password = "bKw1Lywo";
+$dbname   = "onlinediary";
+$dbServerPort = "32686";
+
+// Create connection
+$mysqli = new mysqli($servername, $username, $password, $dbname, $dbServerPort,);
+
+// Check connection
+if (!$mysqli) {
+    die("Connection failed: " . mysqli_connect_error());
+}else
+echo "Connected successfully";  
+$sql=$mysqli->prepare("INSERT INTO applications(Name,username,password) VALUES (?,?,?)"); 
   $sql->bind_param("sss",$name,$uname,$pass); 
   $name=$_POST["tf1"];
   $uname=$_POST["tf2"]; 

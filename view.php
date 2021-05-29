@@ -5,8 +5,21 @@
   fclose($myfile);
 
   $date=$_POST["tf1"];
-  $mysqli=new mysqli('localhost','root','','dairy_web_project'); 
-  $a="SELECT * FROM ".$table." WHERE date='".$date."'";
+  $servername = "mysql-32686-0.cloudclusters.net";
+$username = "admin";
+$password = "bKw1Lywo";
+$dbname   = "onlinediary";
+$dbServerPort = "32686";
+
+// Create connection
+$mysqli = new mysqli($servername, $username, $password, $dbname, $dbServerPort,);
+
+// Check connection
+if (!$mysqli) {
+    die("Connection failed: " . mysqli_connect_error());
+}else
+echo "Connected successfully";
+$a="SELECT * FROM ".$table." WHERE date='".$date."'";
   $sql=$mysqli->query($a);
   	$obj=$sql->fetch_assoc();
     echo '<html>';
