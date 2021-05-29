@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Online Personal Diary </title>
+	<style>
+	body {
+	background-image:url("pic3.jpg");
+	background-repeat:no-repeat;
+	background-size: 100%,100%;
+}
+
+
+  .button {
+	background-color: #ff80aa;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: bold;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+background-color: #f44336;
+border-radius: 8px;
+} 
+
+p{
+	font-size: 34px;
+	color:black;
+	font-weight: bold;
+
+}
+textarea.oblique {
+  font-style: oblique;
+  font-size: 24px;
+  background-color:#ffe5cc;
+color:black;
+	font-weight: bold;
+	border-radius: 8px;
+}
+</style>
+</head>
+<body>
+	<center>
+		<br><br>
+	<form action="view.php" method="POST">
+	<p>Remind Me The Date : </p>
+
+	<input type="Date" id="Date" name="tf1">
+
+	<br><br><br>
+
+	<input type="submit" value="Submit" name="submit" class="button" />
+	<input type="reset" value="Reset" class="button">
+</form>
+</center>
+</body>
+</html>
