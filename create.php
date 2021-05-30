@@ -2,11 +2,11 @@
   $myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
   $table= fread($myfile,filesize("newfile.txt"));
   fclose($myfile);
-  $servername = "mysql-32686-0.cloudclusters.net";
-  $username = "admin";
-  $password = "bKw1Lywo";
-  $dbname   = "onlinediary";
-  $dbServerPort = "32686";
+  $servername = "sql210.epizy.com";
+  $username = "epiz_28745165";
+  $password = "S5gdf4htarK8xl";
+  $dbname   = "epiz_28745165_onlinediary";
+  $dbServerPort = "3306";
 
   // Create connection
   $mysqli = new mysqli($servername, $username, $password, $dbname, $dbServerPort,);
