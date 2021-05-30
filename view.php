@@ -20,25 +20,82 @@
   }
   $a="SELECT * FROM ".$table." WHERE date='".$date."'";
   $sql=$mysqli->query($a);
-  	$obj=$sql->fetch_assoc();
-    echo '<html>';
-    echo '<body>';
-    echo '<head><title> Online Personal Diary </title>';
-    echo '<style>';
-    echo 'body {background-image:url("pic2.jpg");}';
-    echo '.button {background-color: #4CAF50;';
-    echo 'border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: bold;';
-    echo 'display: inline-block;font-size: 20px;margin: 4px 2px;cursor: pointer;background-color: #f44336;';
-    echo 'border-radius: 8px;} ';
-    echo 'p{font-size: 34px;color:black;font-weight: bold;}';
-    echo 'textarea.oblique {font-style: oblique;font-size: 24px;background-color:#ffcccc;';
-    echo 'color:black;font-weight: bold;border-radius: 8px;}';
-    echo '</style></head><body><center><br><br>';
-    echo '<form action="create.php" method="POST">';
-    echo '<p>We are Feeling Lucky to Remind your Memories.</p><br>';
-    echo '<textarea rows="18" cols="75" name="tf2" class="oblique" >'.$obj["feelings"].'</textarea><br><br><br>';
-    echo '</form></center></body></html>';
-
-  $mysqli->close(); 
- 
+ 	//$obj=$sql->fetch_assoc();
+  //echo sizeof($obj); 
  ?> 
+<html>
+<body>
+<head><title> Online Personal Diary </title>
+<style>
+body {
+  background-image:url("pic2.jpg");
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: bold;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #f44336;
+  border-radius: 8px;
+} 
+p{
+  font-size: 34px;color:black;font-weight: bold;
+}
+textarea.oblique {
+  font-style: oblique;
+  font-size: 24px;
+  background-color:#ffcccc;
+  color:black;
+  font-weight: bold;
+  border-radius: 8px;
+}
+.lg {
+  background-color: #3399ff;
+  float: right;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+</style>
+</head>
+<body>
+  <center>
+    <br>
+    <br>
+    <form action="create.php" method="POST">
+      <p>We are Feeling Lucky to Remind your Memories.</p>
+      <br>
+      <input
+        type="button"
+        value="Dashboard"
+        class="lg"
+        onclick="window.location.href='after_login.html';"
+      />
+      <input
+        type="button"
+        value="Logout"
+        class="lg"
+        onclick="window.location.href='index.html';"
+      />
+      <br>
+      <?php 
+        while($obj=$sql->fetch_Object()){
+          echo '<textarea rows="9" cols="75" name="tf2" class="oblique" >'.$obj->feelings.'</textarea><br/>';
+        }
+      ?>
+      <br><br><br>
+    </form>
+  </center>
+</body>
+</html>
+
+<?php
+$mysqli->close(); 
+?>

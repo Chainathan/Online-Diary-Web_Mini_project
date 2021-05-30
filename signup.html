@@ -14,7 +14,7 @@
 
         background-image: url("pic3.jpg");
         background-repeat: no-repeat;
-        background-size: 100%, 100%;
+        background-size: cover;
       }
       .header {
         padding: 20px;
@@ -106,7 +106,8 @@
         border-bottom-right-radius: 3px;
         border-bottom-left-radius: 3px;
       }
-      input[type="submit"] {
+      input[type="submit"],
+      input[type="button"] {
         margin-right: 20px;
         margin-top: 20px;
         width: 80px;
@@ -122,7 +123,8 @@
           inset 0 1px 0 rgba(255, 255, 255, 0.5);
         cursor: pointer;
       }
-      input[type="submit"]:hover {
+      input[type="submit"]:hover,
+      input[type="button"]:hover {
         background-image: -webkit-gradient(
           linear,
           left top,
@@ -141,7 +143,8 @@
           #6ec2e8 100%
         );
       }
-      input[type="submit"]:active {
+      input[type="submit"]:active,
+      input[type="button"]:active {
         background-image: -webkit-gradient(
           linear,
           left top,
@@ -160,6 +163,20 @@
           #b6e2ff 100%
         );
       }
+      .button {
+        background-color: #f44336;
+        border: none;
+        color: white;
+
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+      }
     </style>
   </head>
 
@@ -168,6 +185,9 @@
       <center>
         <font color="white"><h1>Sign Up</h1></font>
       </center>
+      <button class="button" onclick="window.location.href='index.html';">
+        Home
+      </button>
     </div>
     <!-- Begin Page Content -->
     <div id="container">
@@ -175,19 +195,24 @@
         <!-- <label for="loginmsg" style="color:hsla(0,100%,50%,0.5); font-family:"Helvetica Neue",Helvetica,sans-serif;><?php  echo @$_GET['msg'];?></label> -->
 
         <label for="username">Name:</label>
-        <input type="text" id="name" name="tf1" />
+        <input type="text" id="name" name="tf1" required />
 
         <label for="username">Username:</label>
-        <input type="text" id="username" name="tf2" />
+        <input type="text" id="username" name="tf2" required />
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="tf3" />
+        <input type="password" id="password" name="tf3" required />
 
         <label for="password">Confirm Password:</label>
-        <input type="password" id="cpassword" name="tf4" />
+        <input type="password" id="cpassword" name="tf4" required />
         <div id="lower">
           <div align="center">
             <input type="submit" value="Sign Up" />
+            <input
+              type="button"
+              value="Sign in"
+              onclick="window.location.href='signin.html';"
+            />
           </div>
         </div>
         <!--/ lower-->

@@ -10,7 +10,7 @@ $password = "bKw1Lywo";
 $dbname   = "onlinediary";
 $dbServerPort = "32686";
 // Create connection
-$mysqli = new mysqli($servername, $username, $password, $dbname, $dbServerPort,);
+$mysqli = mysqli_connect($servername, $username, $password, $dbname, $dbServerPort,);
 
 // Check connection
 if (!$mysqli) {

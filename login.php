@@ -15,16 +15,24 @@
       die("Connection failed: " . mysqli_connect_error());
   }
   $sql=$mysqli->query("SELECT username,password FROM applications WHERE username='$uname'"); 
+  $flag = false;
   while($obj=$sql->fetch_Object()){
     if($obj->username==$uname AND $obj->password==$pass){
       $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
       fwrite($myfile, $uname);
       fclose($myfile);
+      $flag = true;
       header( 'Location: after_login.html' ); 
     }
     else {
-      echo " Something you wrote wrote. Please Try Again";
+      // session_start();
+      // $_SESSION['errorCode']= "loginError";
+      // header( 'Location: error.html' ); 
+      echo "pass error";
     }
+  }
+  if(!$flag){
+    header( 'Location: error.php' ); 
   }
   $mysqli->close(); 
   

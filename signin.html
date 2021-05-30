@@ -14,7 +14,7 @@
 
         background-image: url("pic3.jpg");
         background-repeat: no-repeat;
-        background-size: 100%, 100%;
+        background-size: cover;
       }
       .header {
         padding: 20px;
@@ -106,7 +106,8 @@
         border-bottom-right-radius: 3px;
         border-bottom-left-radius: 3px;
       }
-      input[type="submit"] {
+      input[type="submit"],
+      input[type="button"] {
         margin-right: 20px;
         margin-top: 20px;
         width: 80px;
@@ -115,30 +116,15 @@
         font-weight: bold;
         color: #fff;
         background-color: #acd6ef; /*IE fallback*/
-        background-image: -webkit-gradient(
-          linear,
-          left top,
-          left bottom,
-          from(#acd6ef),
-          to(#6ec2e8)
-        );
-        background-image: -moz-linear-gradient(
-          top left 90deg,
-          #acd6ef 0%,
-          #6ec2e8 100%
-        );
-        background-image: linear-gradient(
-          top left 90deg,
-          #acd6ef 0%,
-          #6ec2e8 100%
-        );
-        border-radius: 30px;
+
+        border-radius: 20px;
         border: 1px solid #66add6;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.5);
         cursor: pointer;
       }
-      input[type="submit"]:hover {
+      input[type="submit"]:hover,
+      input[type="button"]:hover {
         background-image: -webkit-gradient(
           linear,
           left top,
@@ -157,7 +143,8 @@
           #6ec2e8 100%
         );
       }
-      input[type="submit"]:active {
+      input[type="submit"]:active,
+      input[type="button"]:active {
         background-image: -webkit-gradient(
           linear,
           left top,
@@ -176,6 +163,20 @@
           #b6e2ff 100%
         );
       }
+      .button {
+        background-color: #f44336;
+        border: none;
+        color: white;
+
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+      }
     </style>
   </head>
 
@@ -184,24 +185,29 @@
       <center>
         <font color="white"><h1>Sign In</h1></font>
       </center>
+      <button class="button" onclick="window.location.href='index.html';">
+        Home
+      </button>
     </div>
 
     <div id="container">
       <form action="login.php" method="post">
         <!-- <label for="loginmsg" style="color:hsla(0,100%,50%,0.5); font-family:"Helvetica Neue",Helvetica,sans-serif;><?php  echo @$_GET['msg'];?></label> -->
         <label for="username">Username:</label>
-        <input type="text" id="username" name="tf1" />
+        <input type="text" id="username" name="tf1" required />
         <label for="password">Password:</label>
-        <input type="password" id="password" name="tf2" />
+        <input type="password" id="password" name="tf2" required />
         <div id="lower">
           <div align="center">
             <input type="submit" value="Login" />
+            <input
+              type="button"
+              value="Sign up"
+              onclick="window.location.href='signup.html';"
+            />
           </div>
         </div>
-        <!--/ lower-->
       </form>
     </div>
-    <!--/ container-->
-    <!-- End Page Content -->
   </body>
 </html>

@@ -20,7 +20,7 @@
   $cpass=$_POST["tf4"];
   $sql1=$sql->execute(); 
   if($sql1==TRUE AND $pass==$cpass){ 
-   $a="CREATE TABLE ".$uname." (date VARCHAR(10) PRIMARY KEY ,feelings TEXT)";
+   $a="CREATE TABLE ".$uname." (date VARCHAR(10) ,feelings TEXT)";
    $table=$mysqli->query($a);
    if($table==TRUE){
     header( 'Location: index.html' ) ; 
@@ -31,6 +31,7 @@
   } 
   else {
     echo 'its not working once check the password.';
+    header( 'Location: errorsignup.php' ); 
   }
   $sql->close(); 
   $mysqli->close(); 

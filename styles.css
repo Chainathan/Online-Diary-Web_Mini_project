@@ -1,0 +1,12 @@
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.lg {
+  background-color: #3399ff;
+  float: right;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}

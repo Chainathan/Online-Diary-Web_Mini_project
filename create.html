@@ -6,7 +6,7 @@
       body {
         background-image: url("pic3.jpg");
         background-repeat: no-repeat;
-        background-size: 100%, 100%;
+        background-size: cover;
       }
 
       .button {
@@ -26,7 +26,7 @@
 
       p {
         font-size: 34px;
-        color: black;
+        color: white;
         font-weight: bold;
       }
       textarea.oblique {
@@ -37,6 +37,14 @@
         font-weight: bold;
         border-radius: 8px;
       }
+      .lg {
+        background-color: #3399ff;
+        float: right;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+      }
     </style>
   </head>
   <body>
@@ -45,11 +53,22 @@
       <form action="create.php" method="POST">
         <p>What's The Date :</p>
 
-        <input type="Date" id="Date" name="tf1" />
+        <input type="Date" id="Date" name="tf1" required />
 
         <p>Thought's On Your Mind :</p>
         <br />
-
+        <input
+          type="button"
+          value="Dashboard"
+          class="lg"
+          onclick="window.location.href='after_login.html';"
+        />
+        <input
+          type="button"
+          value="Logout"
+          class="lg"
+          onclick="window.location.href='index.html';"
+        />
         <textarea rows="18" cols="75" name="tf2" class="oblique">
  Enter text here... </textarea
         >
